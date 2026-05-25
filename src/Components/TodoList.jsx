@@ -58,7 +58,19 @@ const TodoList = () => {
                   <h3>{todo.heading}</h3> {/* Displays the headding here */}
                   {/* Button to delete the current heading by passing its index */}
                   <button className="delete-button-heading" onClick={() => handleDeleteTodo(index)}> Delete Heading </button>
-                  <div className='add_list'>
+                </div>
+
+                <ul>
+                  {/* Iterate over each list item inside the current todo */}
+                  {todo.lists.map((list, listIndex) => (
+                    <li key={listIndex} className='todo_inside_list'>
+                      {/* Display the text content of the list item */}
+                      <p>{list}</p>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className='add_list'>
                     {/* Input field for adding a new item under a specific heading */}
                     <input
                       type="text"
@@ -69,7 +81,6 @@ const TodoList = () => {
                     {/* Button to add the list item to the corresponding heading */}
                     <button className="add-list-button" onClick={() => handleAddList(index)}>Add List</button>
                   </div>
-                </div>
               </div>
         ))}
       </div>
