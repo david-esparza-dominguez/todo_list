@@ -35,7 +35,16 @@ const TodoList = () => {
         </div>
       </div>
       <div className="todo_main">
-        
+        {todos.map((todo, index) => ( // Itterate over each todo item in the todos array
+              <div key ={index} className="todo-card">
+                <div className="heading_todo">
+                  {/* Display the heading text of the current todo item */}
+                  <h3>{todo.heading}</h3> {/* Displays the headding here */}
+                  {/* Button to delete the current heading by passing its index */}
+                  <button className="delete-button-heading" onClick={() => handleDeleteTodo(index)}> Delete Heading </button>
+                </div>
+              </div>
+        ))}
       </div>
     </>
   );
