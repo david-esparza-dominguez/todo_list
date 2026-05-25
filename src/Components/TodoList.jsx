@@ -7,7 +7,7 @@ const TodoList = () => {
   // todos: To represent an array of todo items. Initialized with an empty array [], indicating that there are no todo items initially.
   const [todos, setTodos] = useState([]);
   // headingInput: To represent the value entered by user into an input field for adding a new heading for a todo item. Initialized as an empty string ''.
-  const [headingInput, setheadingInput] = useState('');
+  const [headingInput, setHeadingInput] = useState('');
   // listInputs: Initialize listInputs as an empty object {}. This state will hold the value of input fields for each todo item individually.
   const [listInputs, setlistInputs] = useState({});
   // function(ality) for add heading button
