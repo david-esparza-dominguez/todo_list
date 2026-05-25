@@ -10,19 +10,28 @@ const TodoList = () => {
   const [headingInput, setheadingInput] = useState('');
   // listInputs: Initialize listInputs as an empty object {}. This state will hold the value of input fields for each todo item individually.
   const [listInputs, setlistInputs] = useState({});
+  // function(ality) for add heading button
+  const handleAddTodo = () => {
+    if (headingInput.trim() !== '') {
+      setTodos([...todos, { heading: headingInput, lists: [] }]);
+      setHeadingInput('');
+    }
+  };
 
   return (
     <>
       <div className="todo-container">
         <h1 className="title">My Todo List</h1>
-        <div className="input-container">
+        <div className="input-container">  {/* Input field to enter a new heading */}
           <input
             type="text"
-            className="heading-input"
-            placeholder="Enter heading"
-            
+            className="heading-input" // CSS clas for styling
+            placeholder="Enter heading" // Text shown when input is empty
+            value={headingInput}
+            onChange={(e) => {setHeadingInput(e.target.value);}} // Add onChange event handler to update headingInput state 
           />
-          <button className="add-list-button">Add Heading</button>
+          {/* Button to add entered heading to the todo list */}
+          <button className="add-list-button" onClick={handleAddTodo}>Add Heading</button>
         </div>
       </div>
       <div className="todo_main">
